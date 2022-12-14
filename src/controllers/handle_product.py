@@ -3,10 +3,10 @@ from src.models.gallery import *
 from math import ceil
 from flask import Blueprint, request, jsonify
 
-product = Blueprint("product", __name__)
+products = Blueprint("product", __name__)
 
 #Api Lấy danh sách sản phẩm theo danh mục
-@product.route("/v1/products", methods=['GET'])
+@products.route("/v1/products", methods=['GET'])
 def get_products_by_category():
     data = request.json
     page_number = request.args.get("page", default=1, type=int)
@@ -48,7 +48,7 @@ def get_products_by_category():
     })
 
 #Api lấy thông tin chi tiết sản phẩm
-@product.route("/v1/products/<int:product_id>", methods=['GET'])
+@products.route("/v1/products/<int:product_id>", methods=['GET'])
 def get_product_details(product_id):
     sql = "Select * from product where id = {}".format(product_id)
     result = get_data_product(sql)
@@ -82,7 +82,7 @@ def get_product_details(product_id):
     })
 
 #Api tìm kiếm sản phẩm
-@product.route("/v1/products/search", methods=['GET'])
+@products.route("/v1/products/search", methods=['GET'])
 def search_product():
     query = request.args.get("q", type=str)
     page_number = request.args.get("page", default=1, type=int)
