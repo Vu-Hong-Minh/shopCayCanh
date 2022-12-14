@@ -1,13 +1,13 @@
 from flask import Flask
 import os
 from dotenv import load_dotenv
-from src.controllers.handle_Product import product
-from src.controllers.handle_Category import categories
-from src.controllers.handle_Customer import customers
-from src.controllers.handle_Receiver import receivers
-from src.controllers.handle_Employee import employees
-from src.controllers.handle_Receipt import receipt
-from src.controllers.handle_Order import orders
+from src.controllers.handle_product import product
+from src.controllers.handle_category import categories
+from src.controllers.handle_customer import customers
+from src.controllers.handle_receiver import receivers
+from src.controllers.handle_employee import employees
+from src.controllers.handle_receipt import receipt
+from src.controllers.handle_order import orders
 
 
 
