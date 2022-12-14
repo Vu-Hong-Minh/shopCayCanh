@@ -1,7 +1,7 @@
 from flask import Flask
 import os
 from dotenv import load_dotenv
-from src.controllers.handle_Product import product
+from src.controllers.handle_product import product
 
 load_dotenv()
 SECRET_KEY = os.environ.get("KEY")
