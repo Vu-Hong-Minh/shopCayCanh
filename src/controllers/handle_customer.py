@@ -8,10 +8,10 @@ import random
 import smtplib
 
 
-customer = Blueprint("customer", __name__)
+customers = Blueprint("customer", __name__)
 
 #Api đăng nhập
-@customer.route("/v1/login", methods=['POST'])
+@customers.route("/v1/login", methods=['POST'])
 def login():
     data = request.json
     customer_email = data.get('customer_email')
@@ -39,7 +39,7 @@ def login():
         })
 
 #Api đăng ký
-@customer.route("/v1/register", methods=['POST'])
+@customers.route("/v1/register", methods=['POST'])
 def register():
     data = request.json
     full_name = data.get('full_name')
@@ -74,7 +74,7 @@ def register():
             })
 
 #Api đổi mật khẩu
-@customer.route("/v1/customers/<int:customer_id>/change-password", methods=['PUT'])
+@customers.route("/v1/customers/<int:customer_id>/change-password", methods=['PUT'])
 def change_password(customer_id):
     data = request.json
     current_password = data.get('current_password')
@@ -103,7 +103,7 @@ def change_password(customer_id):
         })
 
 #Api quên mật khẩu
-@customer.route("/v1/customers/email/forgot-password", methods=['POST'])
+@customers.route("/v1/customers/email/forgot-password", methods=['POST'])
 def forgot_password():
     data = request.json
     email_sent = data.get('email')
@@ -145,7 +145,7 @@ def forgot_password():
         })
 
 #Api thay mới mật khẩu
-@customer.route("/v1/customers/<int:customer_id>/new-password", methods=['PUT'])
+@customers.route("/v1/customers/<int:customer_id>/new-password", methods=['PUT'])
 def change_password_new(customer_id):
     data = request.json
     new_password = data.get('new_password')
