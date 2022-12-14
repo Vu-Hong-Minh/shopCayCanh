@@ -8,5 +8,8 @@ class conn_SQL:
         self.password = password
 
     def connection_db(self):
-        mydb = mysql.connector.connect(host=self.host, database=self.db, user=self.user, password=self.password)
-        return mydb
+        try:
+            mydb = mysql.connector.connect(host=self.host, database=self.db, user=self.user, password=self.password)
+            return mydb
+        except:
+            print("Có lỗi khi thực thi kết nối đến SQL!")

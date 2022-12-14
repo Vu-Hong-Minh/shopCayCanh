@@ -1,7 +1,7 @@
 from src.models.models import conn_SQL
 
 # Lấy 1 bản ghi
-def get_data_customer(sql):
+def get_data_manager_code(sql):
     try:
         conn = conn_SQL()
         mydb = conn.connection_db()
@@ -16,7 +16,7 @@ def get_data_customer(sql):
         mydb.close()
 
 # Cập nhật bản ghi
-def update_customer(sql):
+def update_manager_code(sql):
     try:
         conn = conn_SQL()
         mydb = conn.connection_db()
