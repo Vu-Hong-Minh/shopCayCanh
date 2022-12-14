@@ -27,4 +27,32 @@ def get_customer_by_id(id):
     sql = "select * from category where id = {}".format(id)
     cursor.execute(sql)
     row = cursor.fetchone()
-    return row 
+    return row
+
+# Lấy 1 bản ghi
+def get_data_customer(sql):
+    try:
+        conn = conn_SQL()
+        mydb = conn.connection_db()
+        cursor = mydb.cursor()
+        cursor.execute(sql)
+        result = cursor.fetchone()
+        return result
+
+    finally:
+        # Đóng kết nối (Close connection).
+        cursor.close()
+        mydb.close()
+
+# Cập nhật bản ghi
+def update_customer(sql):
+    try:
+        conn = conn_SQL()
+        mydb = conn.connection_db()
+        cursor = mydb.cursor()
+        cursor.execute(sql)
+        mydb.commit()
+    finally:
+        # Đóng kết nối (Close connection).
+        cursor.close()
+        mydb.close()
